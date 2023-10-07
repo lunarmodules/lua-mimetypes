@@ -1,7 +1,7 @@
 package = "mimetypes"
 version = "1.0.0-3"
 source = {
-    url = "https://github.com/lunarmodules/lua-mimetypes/archive/refs/tags/v1.0.0.tar.gz"
+    url = "https://github.com/lunarmodules/lua-mimetypes/archive/v1.0.0/lua-mimetypes-1.0.0.tar.gz"
 }
 
 description = {
