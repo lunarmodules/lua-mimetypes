@@ -635,7 +635,7 @@ return {
   ["application"]   = "application/x-ms-application",
   ["lnk"]           = "application/x-ms-shortcut",
   ["wmd"]           = "application/x-ms-wmd",
-  ["wmz"]           = "application/x-ms-wmz",
+--["wmz"]           = "application/x-ms-wmz", -- duplicate extension
   ["xbap"]          = "application/x-ms-xbap",
   ["mdb"]           = "application/x-msaccess",
   ["obd"]           = "application/x-msbinder",
@@ -652,7 +652,7 @@ return {
   ["emf"]           = "application/x-msmetafile",
   ["emz"]           = "application/x-msmetafile",
   ["wmf"]           = "application/x-msmetafile",
-  ["wmz"]           = "application/x-msmetafile",
+--["wmz"]           = "application/x-msmetafile", -- duplicate extension
   ["mny"]           = "application/x-msmoney",
   ["pub"]           = "application/x-mspublisher",
   ["scd"]           = "application/x-msschedule",
@@ -807,7 +807,7 @@ return {
   ["uvvi"]          = "image/vnd.dece.graphic",
   ["djv"]           = "image/vnd.djvu",
   ["djvu"]          = "image/vnd.djvu",
-  ["sub"]           = "image/vnd.dvb.subtitle",
+--["sub"]           = "image/vnd.dvb.subtitle", -- duplicate extension
   ["dwg"]           = "image/vnd.dwg",
   ["dxf"]           = "image/vnd.dxf",
   ["fbs"]           = "image/vnd.fastbidsheet",
@@ -900,7 +900,7 @@ return {
   ["dcurl"]         = "text/vnd.curl.dcurl",
   ["mcurl"]         = "text/vnd.curl.mcurl",
   ["scurl"]         = "text/vnd.curl.scurl",
-  ["sub"]           = "text/vnd.dvb.subtitle",
+--["sub"]           = "text/vnd.dvb.subtitle", -- duplicate extension
   ["fly"]           = "text/vnd.fly",
   ["flx"]           = "text/vnd.fmi.flexstor",
   ["gv"]            = "text/vnd.graphviz",

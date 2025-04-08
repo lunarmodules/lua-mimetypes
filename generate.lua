@@ -49,17 +49,27 @@ end
 -- Function to sort the mime_table
 local function sort_mime_table(mime_table)
   local result = {}
+  local duplicates = {}
   -- Collect all MIME types, in array part of the table
   for mime_type, extensions in pairs(mime_table) do
       result[mime_type] = extensions  -- Copy values
       table.insert(result, mime_type) -- Add MIME type to array part
       table.sort(extensions)          -- Sort extensions
+      for _, ext in ipairs(extensions) do
+          duplicates[ext] = (duplicates[ext] or 0) + 1
+      end
+  end
+
+  for ext, count in pairs(duplicates) do
+      if count == 1 then
+          duplicates[ext] = nil
+      end
   end
 
   -- Sort MIME types in array part of the table
   table.sort(result)
 
-  return result
+  return result, duplicates
 end
 
 
@@ -67,7 +77,7 @@ end
 -- Main function to fetch, parse, sort, and write the mime.types file
 local url = "https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types"
 local content = fetch_file(url)
-local sorted_mime_table = sort_mime_table(parse_mime_types(content))
+local sorted_mime_table, duplicates = sort_mime_table(parse_mime_types(content))
 
 -- Write the sorted mime_table to a Lua module file
 local file = io.stdout --io.open(output_file, "w")
@@ -79,7 +89,13 @@ return {
 for _, mime_type in ipairs(sorted_mime_table) do
     local extensions = sorted_mime_table[mime_type]
     for _, extension in ipairs(extensions) do
-        file:write('  ["' .. extension .. '"]' .. (" "):rep(13-#extension) .. ' = "' .. mime_type .. '",\n')
+        local str = '["' .. extension .. '"]' .. (" "):rep(13-#extension) .. ' = "' .. mime_type .. '",'
+        if duplicates[extension] then
+            str = "--" .. str .. " -- duplicate extension"
+        else
+            str = "  " .. str
+        end
+        file:write(str, "\n")
     end
 end
 file:write("}\n")
