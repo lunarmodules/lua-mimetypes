@@ -1,5 +1,5 @@
 -- mimetypes.lua
--- Version 1.0.0
+-- Version 1.1.0
 
 --[[
 Copyright (c) 2011 Matthew "LeafStorm" Frazier
@@ -38,7 +38,7 @@ license (http://python.org/psf/license/).
 
 local mimetypes = {}
 
-mimetypes.version = '1.0.0'
+mimetypes.version = '1.1.0'
 
 
 -- Extracts the extension from a filename and returns it.
