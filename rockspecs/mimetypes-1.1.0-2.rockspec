@@ -1,6 +1,6 @@
 local package_name = "mimetypes"
-local package_version = "dev"
-local rockspec_revision = "1"
+local package_version = "1.1.0"
+local rockspec_revision = "2"
 local github_account_name = "lunarmodules"
 local github_repo_name = "lua-mimetypes"
 
