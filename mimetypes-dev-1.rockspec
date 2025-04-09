@@ -10,7 +10,7 @@ version = package_version.."-"..rockspec_revision
 
 source = {
   url = "git+https://github.com/"..github_account_name.."/"..github_repo_name..".git",
-  branch = (package_version == "dev") and "master" or nil,
+  branch = (package_version == "dev") and "main" or nil,
   tag = (package_version ~= "dev") and package_version or nil,
 }
 
