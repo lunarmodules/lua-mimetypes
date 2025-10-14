@@ -24,22 +24,21 @@ end
 
 
 
+--[[ Format of file is:
+# COMMENT
+MIME/TYPE EXTENSIONS
+# MIME/TYPE
+--]]
 -- Function to parse the mime.types file into a hash table
 local function parse_mime_types(content)
-  local mime_table = {}
-  for line in content:gmatch("[^\r\n]+") do
-      -- Ignore comments and empty lines
-      if not line:match("^#") and line:match("%S") then
-          local mime_type, extensions = line:match("([^%s]+)%s+(.+)")
-          if mime_type and extensions then
-              for extension in extensions:gmatch("%S+") do
-                  if not mime_table[mime_type] then
-                      mime_table[mime_type] = {}
-                  end
-                  table.insert(mime_table[mime_type], extension)
-              end
-          end
-      end
+  local mime_table = {} -- dict
+  for mime_type, extensions
+  in content:gmatch"\n([^#/%s]+/[^/%s]+)[ \t]+([%g \t]+)"
+  do
+    if not mime_table[mime_type] then mime_table[mime_type] = {} end
+    for extension in extensions:gmatch("%S+") do
+      table.insert(mime_table[mime_type], extension)
+    end
   end
   return mime_table
 end
