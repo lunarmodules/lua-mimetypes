@@ -16,11 +16,11 @@ jobs:
       with:
         submodules: true
 
-    - uses: luarocks/gh-actions-lua@95d2308a0aff36ad31ebadca493ed14853399842 # v7
+    - uses: luarocks/gh-actions-lua@85e2287697275df96334743ac654241a8fd34ab3 # v13
       with:
         luaVersion: ${{ matrix.luaVersion }}
 
-    - uses: luarocks/gh-actions-luarocks@85e2287697275df96334743ac654241a8fd34ab3 # v13
+    - uses: luarocks/gh-actions-luarocks@95d2308a0aff36ad31ebadca493ed14853399842 # v7
 
     - name: Execute tests
       run: lua test.lua
